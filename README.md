@@ -25,8 +25,6 @@ Also make sure `image.tag` has been updated in [kuberay-operator/values.yaml](ht
 
 ### Adding as a Helm repo
 
-GitHub pages can be used to 
-
 
 1. Package the helm repo as .tgz (using helm package): 
     ```bash
@@ -48,7 +46,7 @@ GitHub pages can be used to
 
 
 ``````
-helm install kuberay lint-ray/ray-cluster
+helm install kuberay lint-ray/ray-cluster --version 1.0.0-rc.0
 ```
 
 
