@@ -30,7 +30,7 @@ GitHub pages can be used to
 
 1. Package the helm repo as .tgz (using helm package): 
     ```bash
-    helm package helm-charts/ray-cluster -d release/.
+    helm package helm-chart/ray-cluster -d release/
     ```
 
 2. Include an index.yaml:

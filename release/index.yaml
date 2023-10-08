@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  ray-cluster:
+  - apiVersion: v1
+    created: "2023-10-08T20:44:59.158224913Z"
+    description: A Helm chart for Kubernetes LINT workers
+    digest: 949d0a4cd07593accac170ca5c80a4efaf951e43838b00443a4eeefc4a3665c8
+    icon: https://github.com/ray-project/ray/raw/master/doc/source/images/ray_header_logo.png
+    name: ray-cluster
+    urls:
+    - https://raw.githubusercontent.com/josemarcosrf/lint-worker-kuberay-helm/experiment/lint-ray-worker/release
+    - ray-cluster-1.0.0-rc.0.tgz
+    version: 1.0.0-rc.0
+generated: "2023-10-08T20:44:59.157572145Z"
