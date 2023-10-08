@@ -27,7 +27,7 @@ Also make sure `image.tag` has been updated in [kuberay-operator/values.yaml](ht
 
 ### Adding as a Helm repo
 
-1. Setup github pages to publish docs folder as github pages (you can use a different name, just substitue later)
+1. Setup github pages to publish `docs` folder as github pages (you can use a different name, just substitue later)
 
 2. Package the helm repo as .tgz (using helm package): 
     ```bash
@@ -39,8 +39,6 @@ Also make sure `image.tag` has been updated in [kuberay-operator/values.yaml](ht
     # https://<YOUR_ORG_OR_USERNAME>.github.io/<REPO_NAME>
     helm repo index docs/ --url https://raw.githubusercontent.com/josemarcosrf/lint-worker-kuberay-helm/experiment/lint-ray-worker/docs
     ```
-
-
 
 ### Install
 
