@@ -8,11 +8,6 @@ This repository hosts Helm charts for the [KubeRay](https://github.com/ray-proje
    Please refer to Helm's [documentation](https://helm.sh/docs/) to get started.
 
 
-## Helm charts release
-
-We host all Helm charts on [kuberay-helm](https://github.com/ray-project/kuberay-helm).
-This document describes the process for release managers to release Helm charts.
-
 ### Code updates
 
 > Update versions in Chart.yaml and values.yaml files
@@ -49,18 +44,15 @@ GitHub pages can be used to
     helm repo add lint-ray https://raw.githubusercontent.com/josemarcosrf/lint-worker-kuberay-helm/experiment/lint-ray-worker/release
     ```
 
-Once Helm is set up properly, add the repo as follows:
+### Install
 
-TBD 
-```sh
-helm repo add kuberay https://lint-ray-project.github.io/kuberay-helm/
-helm install kuberay kuberay/kuberay-operator
+
+``````
+helm install kuberay lint-ray/ray-cluster
 ```
 
 
 
-
-----------
 
 
 
