@@ -1,1 +1,15 @@
-https://josemarcosrf.github.io/lint-worker-kuberay-helm
+apiVersion: v1
+entries:
+  lint-ray-cluster:
+  - apiVersion: v1
+    created: "2023-10-08T20:01:12.947252986Z"
+    description: A Helm chart for Kubernetes LINT workers
+    digest: 95e99c28ae3184102df8a489fce6fff3ea6fe0683ce9534b13c403c47dc0aeae
+    icon: https://github.com/ray-project/ray/raw/master/doc/source/images/ray_header_logo.png
+    name: lint-ray-cluster
+    urls:
+    - https://raw.githubusercontent.com/josemarcosrf/lint-worker-kuberay-helm/experiment/lint-ray-worker/docs
+    - lint-ray-cluster-1.0.0-rc.0.tgz
+    version: 1.0.0-rc.0
+    
+generated: "2023-10-08T20:01:12.946558791Z"
