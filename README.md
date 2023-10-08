@@ -16,13 +16,13 @@ This repository hosts Helm charts for the [KubeRay](https://github.com/ray-proje
 
 Please update the value of `version` in:
 
- - [ray-cluster/Chart.yaml](https://github.com/josemarcosrf/lint-worker-kuberay-helm/blob/master/helm-chart/ray-cluster/Chart.yaml),
- - [kuberay-operator/Chart.yaml](https://github.com/josemarcosrf/lint-worker-kuberay-helm/blob/master/helm-chart/kuberay-operator/Chart.yaml),
- - [kuberay-apiserver/Chart.yaml](https://github.com/josemarcosrf/lint-worker-kuberay-helm/blob/master/helm-chart/kuberay-apiserver/Chart.yaml)
+ - [ray-cluster/Chart.yaml](https://github.com/MeliorAI/kuberay-helm/blob/master/helm-chart/ray-cluster/Chart.yaml),
+ - [kuberay-operator/Chart.yaml](https://github.com/MeliorAI/kuberay-helm/blob/master/helm-chart/kuberay-operator/Chart.yaml),
+ - [kuberay-apiserver/Chart.yaml](https://github.com/MeliorAI/kuberay-helm/blob/master/helm-chart/kuberay-apiserver/Chart.yaml)
 
 To the new release version (e.g. 0.4.0).
 
-Also make sure `image.tag` has been updated in [kuberay-operator/values.yaml](https://github.com/josemarcosrf/lint-worker-kuberay-helm/blob/master/helm-chart/kuberay-operator/values.yaml) and [kuberay-apiserver/values.yaml](https://github.com/josemarcosrf/lint-worker-kuberay-helm/blob/master/helm-chart/kuberay-apiserver/values.yaml).
+Also make sure `image.tag` has been updated in [kuberay-operator/values.yaml](https://github.com/MeliorAI/kuberay-helm/blob/master/helm-chart/kuberay-operator/values.yaml) and [kuberay-apiserver/values.yaml](https://github.com/MeliorAI/kuberay-helm/blob/master/helm-chart/kuberay-apiserver/values.yaml).
 
 
 ### Adding as a Helm repo 
@@ -37,7 +37,7 @@ Also make sure `image.tag` has been updated in [kuberay-operator/values.yaml](ht
 3. Include an index.yaml:
     ```bash
     # https://<YOUR_ORG_OR_USERNAME>.github.io/<REPO_NAME>
-    helm repo index docs/ --url https://raw.githubusercontent.com/josemarcosrf/lint-worker-kuberay-helm/experiment/lint-ray-worker/docs
+    helm repo index docs/ --url https://raw.githubusercontent.com/MeliorAI/kuberay-helm/experiment/lint-ray-worker/docs
     ```
 
 ## End-to-end HowTo
@@ -52,7 +52,7 @@ kubectl create secret generic regcred \
     --type=kubernetes.io/dockerconfigjson
 
 # Step 2: Register a Helm chart repo
-helm repo add lint-ray https://raw.githubusercontent.com/josemarcosrf/lint-worker-kuberay-helm/experiment/lint-ray-worker/docs
+helm repo add lint-ray https://raw.githubusercontent.com/MeliorAI/kuberay-helm/experiment/lint-ray-worker/docs
 
 # Step 3: Install both CRDs and KubeRay operator v1.0.0-rc.0.
 helm install kuberay-operator kuberay/kuberay-operator --version 1.0.0-rc.0

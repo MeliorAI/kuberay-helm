@@ -16,7 +16,6 @@ nameOverride: "kuberay"
 fullnameOverride: ""
 
 imagePullSecrets: []
-  # - name: regcred
   # - name: an-existing-secret
 
 head:
