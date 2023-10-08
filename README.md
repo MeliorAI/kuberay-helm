@@ -28,24 +28,26 @@ Also make sure `image.tag` has been updated in [kuberay-operator/values.yaml](ht
 
 1. Package the helm repo as .tgz (using helm package): 
     ```bash
-    helm package helm-chart/ray-cluster -d release/
+    helm package helm-chart/ray-cluster -d docs/
     ```
 
 2. Include an index.yaml:
     ```bash
-    helm repo index release/
+    # https://<YOUR_ORG_OR_USERNAME>.github.io/<REPO_NAME>
+    helm repo index docs/ --url https://raw.githubusercontent.com/josemarcosrf/lint-worker-kuberay-helm/experiment/lint-ray-worker/docs
     ```
 
-3. Now you can add the repo: 
-    ```
-    # https://raw.githubusercontent.com/<YOUR_ORG_OR_USERNAME>/<REPO_NAME>/<BRANCH_USUALLY_MASTER>/<RELEASE_DIR>
-    helm repo add lint-ray https://raw.githubusercontent.com/josemarcosrf/lint-worker-kuberay-helm/experiment/lint-ray-worker/release
-    ```
+
 
 ### Install
 
+3. Now you can add the repo to your helm: 
+    ```
+    # https://raw.githubusercontent.com/<YOUR_ORG_OR_USERNAME>/<REPO_NAME>/<BRANCH_USUALLY_MASTER>/<RELEASE_DIR>
+    helm repo add lint-ray https://raw.githubusercontent.com/josemarcosrf/lint-worker-kuberay-helm/experiment/lint-ray-worker/docs
 
-``````
+4. Install in yur cluster
+```
 helm install kuberay lint-ray/ray-cluster --version 1.0.0-rc.0
 ```
 
