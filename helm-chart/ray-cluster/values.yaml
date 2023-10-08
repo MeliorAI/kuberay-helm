@@ -101,6 +101,10 @@ head:
 
 
 worker:
+  # LINT addition:
+  # > Change the worker image to use a custom one
+  repository: meliorai/lint-worker
+  tag: 0.1
   # If you want to disable the default workergroup
   # uncomment the line below
   # disabled: true
