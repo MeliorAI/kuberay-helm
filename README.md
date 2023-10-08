@@ -8,6 +8,8 @@ This repository hosts Helm charts for the [KubeRay](https://github.com/ray-proje
    Please refer to Helm's [documentation](https://helm.sh/docs/) to get started.
 
 
+## End-to-end HowTo 
+
 ### Code updates
 
 > Update versions in Chart.yaml and values.yaml files
@@ -25,13 +27,14 @@ Also make sure `image.tag` has been updated in [kuberay-operator/values.yaml](ht
 
 ### Adding as a Helm repo
 
+1. Setup github pages to publish docs folder as github pages (you can use a different name, just substitue later)
 
-1. Package the helm repo as .tgz (using helm package): 
+2. Package the helm repo as .tgz (using helm package): 
     ```bash
     helm package helm-chart/ray-cluster -d docs/
     ```
 
-2. Include an index.yaml:
+3. Include an index.yaml:
     ```bash
     # https://<YOUR_ORG_OR_USERNAME>.github.io/<REPO_NAME>
     helm repo index docs/ --url https://raw.githubusercontent.com/josemarcosrf/lint-worker-kuberay-helm/experiment/lint-ray-worker/docs
@@ -41,15 +44,15 @@ Also make sure `image.tag` has been updated in [kuberay-operator/values.yaml](ht
 
 ### Install
 
-3. Now you can add the repo to your helm: 
+1. Now you can add the repo to your helm: 
     ```
     # https://raw.githubusercontent.com/<YOUR_ORG_OR_USERNAME>/<REPO_NAME>/<BRANCH_USUALLY_MASTER>/<RELEASE_DIR>
     helm repo add lint-ray https://raw.githubusercontent.com/josemarcosrf/lint-worker-kuberay-helm/experiment/lint-ray-worker/docs
 
-4. Install in yur cluster
-```
-helm install kuberay lint-ray/ray-cluster --version 1.0.0-rc.0
-```
+2. Install in yur cluster
+    ```
+    helm install kuberay lint-ray/ray-cluster --version 1.0.0-rc.0
+    ```
 
 
 
