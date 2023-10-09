@@ -9,7 +9,7 @@ image:
   # repository: rayproject/ray
   # tag: 2.6.3
   repository: meliorai/lint-worker
-  tag: 0.1
+  tag: 0.1.0
   pullPolicy: IfNotPresent
 
 nameOverride: "kuberay"
