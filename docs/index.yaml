@@ -1,13 +1,34 @@
 apiVersion: v1
 entries:
+  kuberay-apiserver:
+  - apiVersion: v2
+    created: "2023-10-09T16:11:11.613252855+02:00"
+    description: A Helm chart for kuberay-apiserver
+    digest: b065ca286a34335e7e25c64ea4e86ae4df86de67cba25b85e396f97e808dee60
+    name: kuberay-apiserver
+    type: application
+    urls:
+    - https://raw.githubusercontent.com/MeliorAI/kuberay-helm/main/docs/kuberay-apiserver-1.0.0-rc.0.tgz
+    version: 1.0.0-rc.0
+  kuberay-operator:
+  - apiVersion: v2
+    created: "2023-10-09T16:11:11.626895695+02:00"
+    description: A Helm chart for Kubernetes
+    digest: a64eaaaf1dca4e8e63ce506b2497438f379a30e86503847b5fd2587f7c7138d7
+    icon: https://github.com/ray-project/ray/raw/master/doc/source/images/ray_header_logo.png
+    name: kuberay-operator
+    type: application
+    urls:
+    - https://raw.githubusercontent.com/MeliorAI/kuberay-helm/main/docs/kuberay-operator-1.0.0-rc.0.tgz
+    version: 1.0.0-rc.0
   ray-cluster:
   - apiVersion: v1
-    created: "2023-10-09T16:00:50.824733374+02:00"
+    created: "2023-10-09T16:11:11.627635842+02:00"
     description: A Helm chart for Kubernetes LINT workers
-    digest: fdedb384c582b50928b87f765d31bf6c536190efee4d67185cc808e1970c8005
+    digest: e5479c22b2ff871a51d98b923c9b2b38b0fa29b5ec2075d5286b4bf9e4b31943
     icon: https://github.com/ray-project/ray/raw/master/doc/source/images/ray_header_logo.png
     name: ray-cluster
     urls:
     - https://raw.githubusercontent.com/MeliorAI/kuberay-helm/main/docs/ray-cluster-1.0.0-rc.0.tgz
     version: 1.0.0-rc.0
-generated: "2023-10-09T16:00:50.823692214+02:00"
+generated: "2023-10-09T16:11:11.612576074+02:00"

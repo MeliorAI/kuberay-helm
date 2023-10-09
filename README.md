@@ -25,19 +25,14 @@ To the new release version (e.g. 0.4.0).
 Also make sure `image.tag` has been updated in [kuberay-operator/values.yaml](https://github.com/MeliorAI/kuberay-helm/blob/master/helm-chart/kuberay-operator/values.yaml) and [kuberay-apiserver/values.yaml](https://github.com/MeliorAI/kuberay-helm/blob/master/helm-chart/kuberay-apiserver/values.yaml).
 
 
-### Adding as a Helm repo
+### Github as a Helm repo
 
-1. Setup github pages to publish `docs` folder as github pages (you can use a different name, just substitue later)
+1. Setup github pages to publish `docs` folder as github pages
+    (you can use a different name, just substitue later)
 
-2. Package the helm repo as .tgz (using helm package):
+2. Package the helm repo as .tgz (using helm package) & generate an `index.yaml`:
     ```bash
-    helm package helm-chart/ray-cluster -d docs/
-    ```
-
-3. Include an index.yaml:
-    ```bash
-    # https://<YOUR_ORG_OR_USERNAME>.github.io/<REPO_NAME>
-    helm repo index docs/ --url https://raw.githubusercontent.com/MeliorAI/kuberay-helm/main/lint-ray-worker/docs
+    make package
     ```
 
 ## End-to-end HowTo
@@ -46,7 +41,7 @@ Also make sure `image.tag` has been updated in [kuberay-operator/values.yaml](ht
 # Step 1: Create a KinD cluster
 kind create cluster
 
-# Step 1.b: Add the registry secret to pull private images from docker-hub
+# Step 1.b: (Optional) Add the registry secret to pull private images from docker-hub
 kubectl create secret generic regcred \
     --from-file=.dockerconfigjson=$HOME/.docker/config.json \
     --type=kubernetes.io/dockerconfigjson
@@ -55,12 +50,16 @@ kubectl create secret generic regcred \
 helm repo add lint-ray https://raw.githubusercontent.com/MeliorAI/kuberay-helm/main/docs/
 
 # Step 3: Install both CRDs and KubeRay operator v1.0.0-rc.0.
-helm install kuberay-operator kuberay/kuberay-operator --version 1.0.0-rc.0
+helm install kuberay-operator lint-ray/kuberay-operator --version 1.0.0-rc.0
 
 # Step 4: Install a RayCluster custom resource
+# Step 4.a (Optional) Docker image pre-loaded from your local machine:
+kind load docker-image meliorai/lint-worker:<version>
+
+# Step 4.b
 # (For x86_64 users)
 helm install raycluster lint-ray/ray-cluster --version 1.0.0-rc.0
-# (For arm64 users, e.g. Mac M1)
+# TBD: (For arm64 users, e.g. Mac M1)
 # See here for all available arm64 images: https://hub.docker.com/r/rayproject/ray/tags?page=1&name=aarch64
 helm install raycluster kuberay/ray-cluster --version 1.0.0-rc.0 --set image.tag=nightly-aarch64
 
