@@ -37,6 +37,8 @@ Also make sure `image.tag` has been updated in [kuberay-operator/values.yaml](ht
 
 ## End-to-end HowTo
 
+### Setup
+
 ```bash
 # Step 1: Create a KinD cluster
 kind create cluster
@@ -49,14 +51,17 @@ kubectl create secret generic regcred \
 # Step 2: Register a Helm chart repo
 helm repo add lint-ray https://raw.githubusercontent.com/MeliorAI/kuberay-helm/main/docs/
 
+# Step 3 (Optional) Docker image pre-loaded from your local machine:
+kind load docker-image meliorai/lint-worker:0.1.0
+```
+
+### Installing Ray Cluster
+
+```bash
 # Step 3: Install both CRDs and KubeRay operator v1.0.0-rc.0.
 helm install kuberay-operator lint-ray/kuberay-operator --version 1.0.0-rc.0
 
 # Step 4: Install a RayCluster custom resource
-# Step 4.a (Optional) Docker image pre-loaded from your local machine:
-kind load docker-image meliorai/lint-worker:<version>
-
-# Step 4.b
 # (For x86_64 users)
 helm install raycluster lint-ray/ray-cluster --version 1.0.0-rc.0
 # TBD: (For arm64 users, e.g. Mac M1)
