@@ -50,6 +50,8 @@ kubectl create secret generic regcred \
 
 # Step 2: Register a Helm chart repo
 helm repo add lint-ray https://raw.githubusercontent.com/MeliorAI/kuberay-helm/main/docs/
+# Or if already present
+helm repo update
 
 # Step 3 (Optional) Docker image pre-loaded from your local machine:
 kind load docker-image meliorai/lint-worker:0.1.0
