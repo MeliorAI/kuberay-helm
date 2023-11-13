@@ -57,6 +57,8 @@ helm repo update
 kind load docker-image meliorai/lint-worker:0.1.0
 ```
 
+> The worker docker image is build from LINT-worker's [ray.worker.dockerfile](https://github.com/MeliorAI/Legal-Intelligence-workers/blob/experimental/ray-workers/dockerfiles/ray.worker.dockerfile)
+
 ### Installing Ray Cluster
 
 ```bash
